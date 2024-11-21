@@ -12,7 +12,6 @@ import {
   Clock,
   Users,
   Calendar,
-  ChevronRight
 } from 'lucide-react';
 
 const courses = [
