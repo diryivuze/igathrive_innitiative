@@ -22,6 +22,9 @@ import Relaxation from './pages/Relaxation';
 import Completed from './pages/Completed';
 import StudentSettings from './pages/StudentSettings';
 import MentorDash from './pages/MentorDash';
+import MentorCourses from './pages/MentorCourses';
+import MentorStudents from './pages/MentorStudents';
+import Feedback from './pages/Feedback';
 
 const router = createBrowserRouter([
   {
@@ -111,6 +114,18 @@ const router = createBrowserRouter([
   {
     path: "/mentor-dashboard",
     element: <MentorDash />,
+  },
+  {
+    path: "/unique-courses",
+    element: <MentorCourses />,
+  },
+  {
+    path: "/all-students",
+    element: <MentorStudents />,
+  },
+  {
+    path: "/feedback",
+    element: <Feedback />,
   },
 ], {
   future: {
