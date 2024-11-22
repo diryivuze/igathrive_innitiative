@@ -5,8 +5,7 @@ import {
   Link as LinkIcon, 
   BookOpen, 
   CheckCircle, 
-  Menu,
-  XCircle 
+  Menu
 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import MentorSide from "../components/MentorSide";
@@ -87,7 +86,7 @@ const MentorCourses = () => {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-100 overflow-hidden">
       {/* Sidebar */}
       <div
         className={`fixed z-40 lg:static transition-transform duration-300 lg:translate-x-0 ${
@@ -108,23 +107,23 @@ const MentorCourses = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Mobile Header */}
-        <header className="bg-white shadow-md p-4 lg:hidden flex items-center justify-between">
-          <Button 
+        <header className="bg-white shadow-md p-4 lg:hidden flex">
+          {/* <Button 
             variant="ghost"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <Menu className="w-6 h-6" />
-          </Button>
-          <h1 className="text-lg font-bold">Course Management</h1>
+          </Button> */}
+          <h1 className="text-2xl items-left ml-20 justify-center font-bold">Course Management</h1>
         </header>
 
         {/* Course Content */}
-        <div className="p-6 space-y-6">
-          <Card className="w-full max-w-4xl mx-auto">
+        <div className="p-6 space-y-2">
+          <Card className="w-full max-w-4xl">
             <CardHeader>
               <CardTitle className="flex items-center">
                 <BookOpen className="mr-3 text-blue-600" />
-                Web Design & Development Course Management
+                Web Design & Development
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">

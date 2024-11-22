@@ -8,7 +8,7 @@ import {
   Settings,
   Bell,
   LogOut,
-  Menu, 
+  Menu,
 } from 'lucide-react';
 
 const MentorSide = () => {
@@ -28,7 +28,7 @@ const MentorSide = () => {
   return (
     <>
       {/* Mobile Menu Toggle */}
-      <button 
+      <button
         onClick={() => setIsMobileOpen(true)}
         className="md:hidden fixed top-4 left-4 z-50 bg-blue-600 p-3 rounded-md"
       >
@@ -37,7 +37,7 @@ const MentorSide = () => {
 
       {/* Overlay for Mobile */}
       {isMobileOpen && (
-        <div 
+        <div
           className="fixed inset-0 bg-black/50 z-40 md:hidden"
           onClick={() => setIsMobileOpen(false)}
         />
@@ -48,13 +48,12 @@ const MentorSide = () => {
           fixed top-0 left-0 z-50 
           bg-slate-900 text-white 
           transition-transform duration-300 ease-in-out 
-          max-h-dvh overflow-hidden
-          ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'} 
-          md:static md:translate-x-0
+          md:relative md:translate-x-0
+          ${isMobileOpen ? 'translate-x-0' : '-translate-x-full'}
           ${isCollapsed ? 'w-20' : 'w-64'}
-          md:flex md:flex-col
-          min-h-screen flex-col
+          min-h-screen flex flex-col
         `}
+        style={{ height: '100%' }}
       >
         {/* Collapse Toggle Button */}
         <button
@@ -73,9 +72,9 @@ const MentorSide = () => {
         </button>
 
         {/* Close Button for Mobile */}
-        <button 
+        <button
           onClick={() => setIsMobileOpen(false)}
-          className="md:hidden absolute top-4 right-4 bg-grey-900 p-4 rounded-md"
+          className="md:hidden absolute top-4 right-4 bg-gray-900 p-3 rounded-md"
         >
           <ChevronLeft className="h-6 w-6 text-white rotate-180" />
         </button>
@@ -83,13 +82,17 @@ const MentorSide = () => {
         {/* Profile Section */}
         <div className="p-4 border-b border-slate-700">
           <div
-            className={`flex items-center ${isCollapsed ? 'justify-center' : 'space-x-4'}`}
+            className={`flex items-center ${
+              isCollapsed ? 'justify-center' : 'space-x-4'
+            }`}
           >
-            <div className="relative ">
+            <div className="relative">
               <img
                 src="/images/loue.jpg"
                 alt="Mentor"
-                className={`rounded-full border-2 border-blue-500 transition-transform duration-200 hover:scale-105 ${isCollapsed ? 'w-8 h-8' : 'w-12 h-12'}`}
+                className={`rounded-full border-2 border-blue-500 transition-transform duration-200 hover:scale-105 ${
+                  isCollapsed ? 'w-8 h-8' : 'w-12 h-12'
+                }`}
               />
               <div
                 className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 
@@ -106,10 +109,12 @@ const MentorSide = () => {
         </div>
 
         {/* Navigation Menu */}
-        <nav className="flex-1 overflow-y-auto">
-          <div className="px-3 mb-4">
+        <nav className="flex-1 overflow-hidden px-3">
+          <div className="mb-4">
             <div
-              className={`flex items-center ${isCollapsed ? 'justify-center' : 'justify-between'} mb-2 px-2`}
+              className={`flex items-center ${
+                isCollapsed ? 'justify-center' : 'justify-between'
+              } mb-2`}
             >
               {!isCollapsed && (
                 <span className="text-sm font-semibold text-slate-400">Menu</span>
@@ -123,7 +128,7 @@ const MentorSide = () => {
             </div>
           </div>
 
-          <div className="space-y-1 px-3">
+          <div className="space-y-1">
             {menuItems.map((item) => (
               <Link
                 key={item.path}

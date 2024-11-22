@@ -45,12 +45,6 @@ const MentorDash = () => {
       },
     ],
   };
-
-  // Handle button actions
-  const handleViewFeedback = () => alert("Viewing feedback...");
-  const handleUpdateCourse = () => alert("Updating course...");
-  const handleRemoveStudent = () => setModalVisible(true);
-
   return (
     <div className="flex min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -73,14 +67,14 @@ const MentorDash = () => {
       {/* Main Content */}
       <div className="flex-1 flex flex-col">
         {/* Header for mobile */}
-        <header className="bg-white shadow-md p-4 lg:hidden flex items-center justify-between">
-          <button
+        <header className="bg-white shadow-md p-4 lg:hidden flex">
+          {/* <button
             className="text-gray-700 hover:text-gray-900"
             onClick={() => setIsSidebarOpen(!isSidebarOpen)}
           >
             <Menu className="w-6 h-6" />
-          </button>
-          <h1 className="text-lg font-bold text-gray-800">Dashboard</h1>
+          </button> */}
+          <h1 className="text-2xl items-left ml-24 justify-center font-bold">Dashboard</h1>
         </header>
 
         {/* Content */}
@@ -108,63 +102,33 @@ const MentorDash = () => {
           <div className="bg-white shadow-md rounded-lg p-6">
             <h2 className="text-xl font-bold text-gray-800 mb-4">Course Highlights</h2>
             <ul className="space-y-2 text-gray-700">
-              <li>✅ 120 students enrolled</li>
-              <li>💻 85% course completion rate</li>
-              <li>📅 Next course review: 25th Nov 2024</li>
+              <li>✅ 12 students enrolled</li>
+              <li>💻 55% course completion rate</li>
+              <li>📅 Next course review: 28th Nov 2024</li>
               <li>⭐ Average feedback rating: 4.5/5</li>
             </ul>
           </div>
 
           {/* Mentor Actions */}
           <div className="bg-white shadow-md rounded-lg p-6">
-            <h2 className="text-xl font-bold text-gray-800 mb-4">Mentor Actions</h2>
-            <div className="flex flex-wrap gap-4">
-              <button
-                className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-                onClick={handleViewFeedback}
-              >
-                View Feedback
-              </button>
-              <button
-                className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
-                onClick={handleUpdateCourse}
-              >
-                Update Course
-              </button>
-              <button
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-                onClick={handleRemoveStudent}
-              >
-                Remove Student
-              </button>
-            </div>
-          </div>
+      <h2 className="text-xl font-bold text-gray-800 mb-4">Mentor Actions</h2>
+      <div className="flex flex-wrap gap-4">
+        <button
+          className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+          onClick={() => navigate('/feedback')}
+        >
+          View Feedback
+        </button>
+        <button
+          className="px-4 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+          onClick={() => navigate('/unique-courses')}
+        >
+          Update Course
+        </button>
+      </div>
+    </div>
         </div>
       </div>
-
-      {/* Modal */}
-      {modalVisible && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="bg-white rounded-lg p-6 shadow-lg">
-            <h3 className="text-lg font-bold mb-4">Confirm Removal</h3>
-            <p className="text-gray-600 mb-4">Are you sure you want to remove this student?</p>
-            <div className="flex space-x-4">
-              <button
-                className="px-4 py-2 bg-red-600 text-white rounded hover:bg-red-700"
-                onClick={() => setModalVisible(false)}
-              >
-                Confirm
-              </button>
-              <button
-                className="px-4 py-2 bg-gray-300 text-gray-800 rounded hover:bg-gray-400"
-                onClick={() => setModalVisible(false)}
-              >
-                Cancel
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
